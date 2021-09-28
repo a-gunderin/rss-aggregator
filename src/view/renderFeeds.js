@@ -13,6 +13,7 @@ export default (feedsArr) => {
     p.textContent = feed.description;
     li.append(h3, p);
     return li;
-  });
+  }).reverse();
   elements.feedsList.append(...feedsEls);
+  elements.postsFeedsBlock.classList.remove('d-none');
 };

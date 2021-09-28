@@ -14,7 +14,7 @@ export default (data) => {
     title: item.querySelector('title').textContent,
     description: item.querySelector('description').textContent,
     link: item.querySelector('link').textContent,
-  }));
+  })).reverse();
 
   return {
     title,

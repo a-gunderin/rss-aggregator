@@ -3,6 +3,7 @@ import axios from 'axios';
 import elements from '../common/elements.js';
 import watchedState from '../view/view.js';
 import rssParser from '../common/rssParser.js';
+import updateRss from './updateRss.js';
 
 export default () => {
   const schema = yup.string().url();
@@ -33,6 +34,9 @@ export default () => {
             watchedState.feeds.push({ title: data.title, description: data.description });
             watchedState.posts.push(...data.items);
             return false;
+          })
+          .then(() => {
+            updateRss();
           });
         return false;
       })
