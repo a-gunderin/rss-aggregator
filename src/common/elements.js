@@ -6,6 +6,7 @@ const elements = {
   postsFeedsBlock: document.getElementById('posts-feeds'),
   postsList: document.getElementById('posts-list'),
   feedsList: document.getElementById('feeds-list'),
+  modalBlock: document.getElementById('modal'),
 };
 
 elements.infoBlock.classList.add('feedback', 'm-0', 'position-absolute', 'small');

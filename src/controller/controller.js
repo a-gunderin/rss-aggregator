@@ -44,4 +44,11 @@ export default () => {
         watchedState.isValidUrl = false;
       });
   });
+
+  elements.postsList.addEventListener('click', (e) => {
+    const { target } = e;
+    if (target.tagName !== 'BUTTON') return false;
+    watchedState.activePostInModal = target.previousElementSibling.href;
+    return false;
+  });
 };

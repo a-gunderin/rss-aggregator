@@ -5,6 +5,7 @@ const state = {
   feedUrls: [],
   feeds: [],
   posts: [],
+  activePostInModal: null,
 };
 
 export default state;
