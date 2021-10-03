@@ -1,6 +1,6 @@
 import elements from '../common/elements.js';
 
-export default (postsArr) => {
+export default (postsArr, viewedArticles) => {
   elements.postsList.innerHTML = '';
   const postsEls = postsArr
     .map((post) => {
@@ -8,7 +8,11 @@ export default (postsArr) => {
       const a = document.createElement('a');
       const button = document.createElement('button');
       li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start', 'border-0', 'border-end-0');
-      a.classList.add('fw-bold');
+      if (viewedArticles.includes(post.link)) {
+        a.classList.add('fw-normal');
+      } else {
+        a.classList.add('fw-bold');
+      }
       button.classList.add('btn', 'btn-outline-primary', 'btn-sm');
       a.setAttribute('href', post.link);
       a.setAttribute('target', '_blank');

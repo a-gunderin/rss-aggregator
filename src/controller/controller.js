@@ -47,8 +47,13 @@ export default () => {
 
   elements.postsList.addEventListener('click', (e) => {
     const { target } = e;
-    if (target.tagName !== 'BUTTON') return false;
-    watchedState.activePostInModal = target.previousElementSibling.href;
+    if (target.tagName === 'A') {
+      watchedState.viewedArticles.push(target.href);
+    }
+    if (target.tagName === 'BUTTON') {
+      watchedState.viewedArticles.push(target.previousElementSibling.href);
+      watchedState.activePostInModal = target.previousElementSibling.href;
+    }
     return false;
   });
 };

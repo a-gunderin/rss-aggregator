@@ -6,6 +6,7 @@ import { renderErrorBlock, removeErrorBlock } from './renderInfoBlock.js';
 import renderFeeds from './renderFeeds.js';
 import renderPosts from './renderPosts.js';
 import renderModalInfo from './renderModalInfo.js';
+import markViewedArticles from './markViewedArticles.js';
 
 const i18nextInstance = i18next.createInstance();
 i18nextInstance.init(options);
@@ -39,11 +40,14 @@ export default onChange(state, (path, value) => {
     renderFeeds(value);
   }
   if (path === 'posts') {
-    renderPosts(value);
+    const { viewedArticles } = state;
+    renderPosts(value, viewedArticles);
   }
-
   if (path === 'activePostInModal') {
     const post = state.posts.filter((item) => item.link === value);
     renderModalInfo(...post);
+  }
+  if (path === 'viewedArticles') {
+    markViewedArticles(value);
   }
 });

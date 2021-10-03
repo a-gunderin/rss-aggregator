@@ -6,6 +6,7 @@ const state = {
   feeds: [],
   posts: [],
   activePostInModal: null,
+  viewedArticles: [],
 };
 
 export default state;
