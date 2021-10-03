@@ -3,3 +3,5 @@ import 'bootstrap';
 import controller from './controller/controller.js';
 
 controller();
+
+export default controller;
