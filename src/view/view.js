@@ -9,6 +9,7 @@ import renderFeeds from './renderFeeds.js';
 import renderPosts from './renderPosts.js';
 import renderModalInfo from './renderModalInfo.js';
 import markViewedArticles from './markViewedArticles.js';
+import { blockForm, unblockForm } from './formBlockers.js';
 
 const i18nextInstance = i18next.createInstance();
 i18nextInstance.init(options);
@@ -58,6 +59,14 @@ export default onChange(state, (path, value) => {
     }
     if (value === false) {
       removeSuccessBlock();
+    }
+  }
+  if (path === 'rssIsLoading') {
+    if (value === true) {
+      blockForm();
+    }
+    if (value === false) {
+      unblockForm();
     }
   }
 });

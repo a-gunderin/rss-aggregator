@@ -23,6 +23,7 @@ export default () => {
         }
         watchedState.isInFeed = false;
         const proxyUrl = `https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${inputData}`;
+        watchedState.rssIsLoading = true;
         axios.get(proxyUrl)
           .then((response) => {
             watchedState.rssLoaded = false;
@@ -41,12 +42,14 @@ export default () => {
             return false;
           })
           .then(() => {
+            watchedState.rssIsLoading = false;
             updateRss();
           });
         return false;
       })
       .catch(() => {
         watchedState.isValidUrl = false;
+        watchedState.rssIsLoading = false;
       });
   });
 

@@ -8,6 +8,7 @@ const state = {
   activePostInModal: null,
   viewedArticles: [],
   rssLoaded: false,
+  rssIsLoading: false,
 };
 
 export default state;
