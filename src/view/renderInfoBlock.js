@@ -12,4 +12,18 @@ const removeErrorBlock = () => {
   elements.infoBlock.remove();
 };
 
-export { renderErrorBlock, removeErrorBlock };
+const renderSuccessBlock = (infoText) => {
+  elements.infoBlock.classList.add('text-success');
+  elements.infoBlock.textContent = infoText;
+  elements.exampleBlock.after(elements.infoBlock);
+  elements.input.value = '';
+  elements.input.focus();
+};
+
+const removeSuccessBlock = () => {
+  elements.infoBlock.remove();
+};
+
+export {
+  renderErrorBlock, removeErrorBlock, renderSuccessBlock, removeSuccessBlock,
+};

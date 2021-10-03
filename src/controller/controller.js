@@ -25,14 +25,19 @@ export default () => {
         const proxyUrl = `https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${inputData}`;
         axios.get(proxyUrl)
           .then((response) => {
-            const data = rssParser(response.data.contents);
-            if (data === 'parserError') {
-              watchedState.isValidRss = false;
+            watchedState.rssLoaded = false;
+            if (response.status === 200) {
+              const data = rssParser(response.data.contents);
+              if (data === 'parserError') {
+                watchedState.isValidRss = false;
+                return false;
+              }
+              watchedState.rssLoaded = true;
+              watchedState.feedUrls.push(inputData);
+              watchedState.feeds.push({ title: data.title, description: data.description });
+              watchedState.posts.push(...data.items);
               return false;
             }
-            watchedState.feedUrls.push(inputData);
-            watchedState.feeds.push({ title: data.title, description: data.description });
-            watchedState.posts.push(...data.items);
             return false;
           })
           .then(() => {

@@ -7,6 +7,7 @@ const state = {
   posts: [],
   activePostInModal: null,
   viewedArticles: [],
+  rssLoaded: false,
 };
 
 export default state;

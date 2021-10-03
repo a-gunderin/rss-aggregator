@@ -2,7 +2,9 @@ import onChange from 'on-change';
 import i18next from 'i18next';
 import state from '../model/model.js';
 import options from '../language/languages.js';
-import { renderErrorBlock, removeErrorBlock } from './renderInfoBlock.js';
+import {
+  renderErrorBlock, removeErrorBlock, renderSuccessBlock, removeSuccessBlock,
+} from './renderInfoBlock.js';
 import renderFeeds from './renderFeeds.js';
 import renderPosts from './renderPosts.js';
 import renderModalInfo from './renderModalInfo.js';
@@ -49,5 +51,13 @@ export default onChange(state, (path, value) => {
   }
   if (path === 'viewedArticles') {
     markViewedArticles(value);
+  }
+  if (path === 'rssLoaded') {
+    if (value === true) {
+      renderSuccessBlock(i18nextInstance.t('rssLoadedSuccessfully'));
+    }
+    if (value === false) {
+      removeSuccessBlock();
+    }
   }
 });
