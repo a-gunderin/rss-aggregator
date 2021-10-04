@@ -34,11 +34,11 @@ export default () => {
                   watchedState.isValidRss = false;
                   return false;
                 }
+                watchedState.rssIsLoading = false;
+                watchedState.rssLoaded = true;
                 watchedState.feedUrls.push(inputData);
                 watchedState.feeds.push({ title: data.title, description: data.description });
                 watchedState.posts.push(...data.items);
-                watchedState.rssIsLoading = false;
-                watchedState.rssLoaded = true;
                 return false;
               }
               watchedState.isValidRss = false;
