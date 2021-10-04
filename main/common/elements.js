@@ -9,6 +9,4 @@ const elements = {
   modalBlock: document.getElementById('modal'),
 };
 
-elements.infoBlock.classList.add('feedback', 'm-0', 'position-absolute', 'small');
-
 export default elements;
