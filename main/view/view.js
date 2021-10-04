@@ -3,7 +3,7 @@ import i18next from 'i18next';
 import state from '../model/model.js';
 import options from '../language/languages.js';
 import {
-  renderErrorBlock, removeErrorBlock, renderSuccessBlock, removeSuccessBlock,
+  renderErrorInfo, removeErrorInfo, renderSuccessInfo, removeSuccessInfo,
 } from './renderInfoBlock.js';
 import renderFeeds from './renderFeeds.js';
 import renderPosts from './renderPosts.js';
@@ -17,26 +17,26 @@ i18nextInstance.init(options);
 export default onChange(state, (path, value) => {
   if (path === 'isValidUrl') {
     if (value === false) {
-      renderErrorBlock(i18nextInstance.t('invalidUrl'));
+      renderErrorInfo(i18nextInstance.t('invalidUrl'));
     }
     if (value === true) {
-      removeErrorBlock();
+      removeErrorInfo();
     }
   }
   if (path === 'isInFeed') {
     if (value === true) {
-      renderErrorBlock(i18nextInstance.t('isInFeed'));
+      renderErrorInfo(i18nextInstance.t('isInFeed'));
     }
     if (value === false) {
-      removeErrorBlock();
+      removeErrorInfo();
     }
   }
   if (path === 'isValidRss') {
     if (value === false) {
-      renderErrorBlock(i18nextInstance.t('invalidRss'));
+      renderErrorInfo(i18nextInstance.t('invalidRss'));
     }
     if (value === true) {
-      removeErrorBlock();
+      removeErrorInfo();
     }
   }
   if (path === 'feeds') {
@@ -55,10 +55,10 @@ export default onChange(state, (path, value) => {
   }
   if (path === 'rssLoaded') {
     if (value === true) {
-      renderSuccessBlock(i18nextInstance.t('rssLoadedSuccessfully'));
+      renderSuccessInfo(i18nextInstance.t('rssLoadedSuccessfully'));
     }
     if (value === false) {
-      removeSuccessBlock();
+      removeSuccessInfo();
     }
   }
   if (path === 'rssIsLoading') {

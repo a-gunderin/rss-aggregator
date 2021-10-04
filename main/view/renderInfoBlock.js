@@ -1,29 +1,29 @@
 import elements from '../common/elements.js';
 
-const renderErrorBlock = (infoText) => {
+const renderErrorInfo = (infoText) => {
   elements.input.classList.add('is-invalid');
   elements.infoBlock.classList.add('text-danger');
   elements.infoBlock.textContent = infoText;
-  elements.exampleBlock.after(elements.infoBlock);
 };
 
-const removeErrorBlock = () => {
+const removeErrorInfo = () => {
   elements.input.classList.remove('is-invalid');
-  elements.infoBlock.remove();
+  elements.infoBlock.classList.remove('text-danger');
+  elements.infoBlock.textContent = '';
 };
 
-const renderSuccessBlock = (infoText) => {
+const renderSuccessInfo = (infoText) => {
   elements.infoBlock.classList.add('text-success');
   elements.infoBlock.textContent = infoText;
-  elements.exampleBlock.after(elements.infoBlock);
   elements.input.value = '';
   elements.input.focus();
 };
 
-const removeSuccessBlock = () => {
-  elements.infoBlock.remove();
+const removeSuccessInfo = () => {
+  elements.infoBlock.classList.remove('text-success');
+  elements.infoBlock.textContent = '';
 };
 
 export {
-  renderErrorBlock, removeErrorBlock, renderSuccessBlock, removeSuccessBlock,
+  renderErrorInfo, removeErrorInfo, renderSuccessInfo, removeSuccessInfo,
 };
