@@ -28,7 +28,7 @@ export default () => {
           axios.get(proxyUrl)
             .then((response) => {
               watchedState.rssLoaded = false;
-              if (response.status === 200) {
+              if (response.status >= 200 && response.status <= 299) {
                 const data = rssParser(response.data.contents);
                 if (data === 'parserError') {
                   watchedState.isValidRss = false;
@@ -40,6 +40,7 @@ export default () => {
                 watchedState.posts.push(...data.items);
                 return false;
               }
+              watchedState.isValidRss = false;
               return false;
             })
             .then(() => {
