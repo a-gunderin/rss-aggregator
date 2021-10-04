@@ -14,7 +14,7 @@ const removeErrorInfo = () => {
 
 const renderSuccessInfo = (infoText) => {
   elements.infoBlock.classList.add('text-success');
-  elements.infoBlock.textContent = infoText;
+  elements.infoBlock.innerHTML = infoText;
   elements.input.value = '';
   elements.input.focus();
 };
