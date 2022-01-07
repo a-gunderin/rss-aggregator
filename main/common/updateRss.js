@@ -1,14 +1,13 @@
 import axios from 'axios';
-import watchedState from '../view/view.js';
-import rssParser from '../common/rssParser.js';
+import rssParser from './rssParser.js';
 
-export default () => {
-  if (!watchedState.feedUrls.length) {
+export default (state) => {
+  if (!state.feedUrls.length) {
     return false;
   }
   const timer = () => {
     setTimeout(() => {
-      const promises = watchedState.feedUrls.map((feed) => {
+      const promises = state.feedUrls.map((feed) => {
         const proxyUrl = `https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${feed}`;
         return axios
           .get(proxyUrl)
@@ -20,7 +19,7 @@ export default () => {
       Promise
         .all(promises)
         .then((items) => {
-          watchedState.posts = items.flat();
+          state.posts = items.flat();
           timer();
         });
     }, 5000);

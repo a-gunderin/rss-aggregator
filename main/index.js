@@ -1,7 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap';
-import controller from './controller/controller.js';
+import runApp from './init.js';
 
-controller();
-
-export default controller;
+runApp();
