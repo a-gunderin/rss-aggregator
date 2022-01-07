@@ -19,7 +19,8 @@ export default (state) => {
       Promise
         .all(promises)
         .then((items) => {
-          state.posts = items.flat();
+          const stateX = state;
+          stateX.posts = items.flat();
           timer();
         });
     }, 5000);
