@@ -1,16 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-import model from './model/model.js';
-import elements from './common/elements.js';
 import * as yup from 'yup';
 import onChange from 'on-change';
-import view from './view/view.js';
 import axios from 'axios';
+import model from './model/model.js';
+import elements from './common/elements.js';
+import view from './view/view.js';
 import rssParser from './common/rssParser.js';
 import updateRss from './common/updateRss.js';
 
 export default () => {
-
   const state = onChange(model, (path, value) => {
     view(model, path, value);
   });
@@ -76,4 +75,4 @@ export default () => {
     }
     return false;
   });
-}
+};

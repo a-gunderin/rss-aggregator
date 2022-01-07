@@ -67,4 +67,4 @@ export default (model, path, value) => {
       unblockForm();
     }
   }
-}
+};
