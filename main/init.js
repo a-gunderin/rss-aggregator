@@ -21,7 +21,7 @@ export default async () => {
 
   const schema = yup.string().url();
 
-  elements.form.addEventListener('submit', (e) => {
+  document.getElementById('rss-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const inputData = formData.get('url');
@@ -69,7 +69,7 @@ export default async () => {
       });
   });
 
-  elements.postsList.addEventListener('click', (e) => {
+  document.getElementById('posts-list').addEventListener('click', (e) => {
     const { target } = e;
     if (target.tagName === 'A') {
       state.viewedArticles.push(target.href);
