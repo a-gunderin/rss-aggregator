@@ -9,7 +9,7 @@ import elements from './common/elements.js';
 import view from './view/view.js';
 import rssParser from './common/rssParser.js';
 import updateRss from './common/updateRss.js';
-import options from './language/languages.js';
+import options from './language/index.js';
 
 export default async () => {
   const i18nextInstance = i18next.createInstance();

@@ -1,7 +1,9 @@
 import axios from 'axios';
 import rssParser from './rssParser.js';
 
-export default (state) => {
+export default (model) => {
+  const state = model;
+
   if (!state.feedUrls.length) {
     return false;
   }
@@ -19,8 +21,7 @@ export default (state) => {
       Promise
         .all(promises)
         .then((items) => {
-          const stateX = state;
-          stateX.posts = items.flat();
+          state.posts = items.flat();
           timer();
         });
     }, 5000);
