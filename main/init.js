@@ -11,9 +11,9 @@ import rssParser from './common/rssParser.js';
 import updateRss from './common/updateRss.js';
 import options from './language/languages.js';
 
-export default () => {
+export default async () => {
   const i18nextInstance = i18next.createInstance();
-  i18nextInstance.init(options);
+  await i18nextInstance.init(options);
 
   const state = onChange(model, (path, value) => {
     view(model, path, value, i18nextInstance);
