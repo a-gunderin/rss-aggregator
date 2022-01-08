@@ -5,7 +5,6 @@ import onChange from 'on-change';
 import axios from 'axios';
 import i18next from 'i18next';
 import model from './model/model.js';
-import elements from './common/elements.js';
 import view from './view/view.js';
 import rssParser from './common/rssParser.js';
 import updateRss from './common/updateRss.js';
