@@ -3,15 +3,20 @@ import 'bootstrap';
 import * as yup from 'yup';
 import onChange from 'on-change';
 import axios from 'axios';
+import i18next from 'i18next';
 import model from './model/model.js';
 import elements from './common/elements.js';
 import view from './view/view.js';
 import rssParser from './common/rssParser.js';
 import updateRss from './common/updateRss.js';
+import options from './language/languages.js';
 
 export default () => {
+  const i18nextInstance = i18next.createInstance();
+  i18nextInstance.init(options);
+
   const state = onChange(model, (path, value) => {
-    view(model, path, value);
+    view(model, path, value, i18nextInstance);
   });
 
   const schema = yup.string().url();

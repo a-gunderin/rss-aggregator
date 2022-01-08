@@ -1,5 +1,3 @@
-import i18next from 'i18next';
-import options from '../language/languages.js';
 import {
   renderErrorInfo, removeErrorInfo, renderSuccessInfo, removeSuccessInfo,
 } from './renderInfoBlock.js';
@@ -9,10 +7,7 @@ import renderModalInfo from './renderModalInfo.js';
 import markViewedArticles from './markViewedArticles.js';
 import { blockForm, unblockForm } from './formBlockers.js';
 
-export default (model, path, value) => {
-  const i18nextInstance = i18next.createInstance();
-  i18nextInstance.init(options);
-
+export default (model, path, value, i18nextInstance) => {
   if (path === 'isValidUrl') {
     if (value === false) {
       renderErrorInfo(i18nextInstance.t('invalidUrl'));
