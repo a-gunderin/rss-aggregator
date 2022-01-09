@@ -1,7 +1,5 @@
-import elements from '../common/elements.js';
-
 export default (feedsArr) => {
-  elements.feedsList.innerHTML = '';
+  document.getElementById('feeds-list').innerHTML = '';
   const feedsEls = feedsArr.map((feed) => {
     const li = document.createElement('li');
     const h3 = document.createElement('h3');
@@ -14,6 +12,6 @@ export default (feedsArr) => {
     li.append(h3, p);
     return li;
   }).reverse();
-  elements.feedsList.append(...feedsEls);
-  elements.postsFeedsBlock.classList.remove('d-none');
+  document.getElementById('feeds-list').append(...feedsEls);
+  document.getElementById('posts-feeds').classList.remove('d-none');
 };

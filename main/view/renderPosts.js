@@ -1,7 +1,5 @@
-import elements from '../common/elements.js';
-
 export default (postsArr, viewedArticles) => {
-  elements.postsList.innerHTML = '';
+  document.getElementById('posts-list').innerHTML = '';
   const postsEls = postsArr
     .map((post) => {
       const li = document.createElement('li');
@@ -23,6 +21,6 @@ export default (postsArr, viewedArticles) => {
       li.append(a, button);
       return li;
     }).reverse();
-  elements.postsList.append(...postsEls);
-  elements.postsFeedsBlock.classList.remove('d-none');
+  document.getElementById('posts-list').append(...postsEls);
+  document.getElementById('posts-feeds').classList.remove('d-none');
 };

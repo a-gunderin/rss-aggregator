@@ -1,27 +1,25 @@
-import elements from '../common/elements.js';
-
 const renderErrorInfo = (infoText) => {
-  elements.input.classList.add('is-invalid');
-  elements.infoBlock.classList.add('text-danger');
-  elements.infoBlock.textContent = infoText;
+  document.getElementById('url-input').classList.add('is-invalid');
+  document.querySelector('.info-block').classList.add('text-danger');
+  document.querySelector('.info-block').textContent = infoText;
 };
 
 const removeErrorInfo = () => {
-  elements.input.classList.remove('is-invalid');
-  elements.infoBlock.classList.remove('text-danger');
-  elements.infoBlock.textContent = '';
+  document.getElementById('url-input').classList.remove('is-invalid');
+  document.querySelector('.info-block').classList.remove('text-danger');
+  document.querySelector('.info-block').textContent = '';
 };
 
 const renderSuccessInfo = (infoText) => {
-  elements.infoBlock.classList.add('text-success');
-  elements.infoBlock.textContent = infoText;
-  elements.input.value = '';
-  elements.input.focus();
+  document.querySelector('.info-block').classList.add('text-success');
+  document.querySelector('.info-block').textContent = infoText;
+  document.getElementById('url-input').value = '';
+  document.getElementById('url-input').focus();
 };
 
 const removeSuccessInfo = () => {
-  elements.infoBlock.classList.remove('text-success');
-  elements.infoBlock.textContent = '';
+  document.querySelector('.info-block').classList.remove('text-success');
+  document.querySelector('.info-block').textContent = '';
 };
 
 export {

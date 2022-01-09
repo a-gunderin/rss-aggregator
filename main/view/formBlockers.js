@@ -1,13 +1,11 @@
-import elements from '../common/elements.js';
-
 const blockForm = () => {
-  elements.input.setAttribute('disabled', '');
-  elements.submitBtn.setAttribute('disabled', '');
+  document.getElementById('url-input').setAttribute('disabled', '');
+  document.querySelector('button[type="submit"]').setAttribute('disabled', '');
 };
 
 const unblockForm = () => {
-  elements.input.removeAttribute('disabled');
-  elements.submitBtn.removeAttribute('disabled');
+  document.getElementById('url-input').removeAttribute('disabled');
+  document.querySelector('button[type="submit"]').removeAttribute('disabled');
 };
 
 export { blockForm, unblockForm };
