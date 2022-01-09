@@ -14,8 +14,10 @@ export default async () => {
   const i18nextInstance = i18next.createInstance();
   await i18nextInstance.init(options);
 
-  const state = onChange(model, (path, value) => {
-    view(model, path, value, i18nextInstance);
+  const modelInstance = JSON.parse(JSON.stringify(model));
+
+  const state = onChange(modelInstance, (path, value) => {
+    view(modelInstance, path, value, i18nextInstance);
   });
 
   const schema = yup.string().url();
