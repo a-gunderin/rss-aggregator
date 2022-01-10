@@ -3,4 +3,5 @@ export default {
   isInFeed: 'RSS already exists',
   invalidRss: 'Resource does not contain valid RSS',
   rssLoadedSuccessfully: 'RSS loaded successfully',
+  networkError: 'Network error',
 };

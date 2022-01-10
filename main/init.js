@@ -41,6 +41,7 @@ export default async () => {
         state.rssIsLoading = true;
         axios.get(proxyUrl)
           .then((response) => {
+            state.networkError = false;
             state.rssLoaded = false;
             if (response.status >= 200 && response.status <= 299) {
               const data = rssParser(response.data.contents);
@@ -61,6 +62,11 @@ export default async () => {
           .then(() => {
             state.rssIsLoading = false;
             updateRss(state);
+          })
+          .catch((err) => {
+            if (err.message === 'Network Error') {
+              state.networkError = true;
+            }
           });
         return false;
       })

@@ -9,6 +9,7 @@ const state = {
   viewedArticles: [],
   rssLoaded: false,
   rssIsLoading: false,
+  networkError: false,
 };
 
 export default state;

@@ -32,6 +32,14 @@ export default (model, path, value, i18nextInstance) => {
       removeErrorInfo();
     }
   }
+  if (path === 'networkError') {
+    if (value === true) {
+      renderErrorInfo(i18nextInstance.t('networkError'));
+    }
+    if (value === false) {
+      removeErrorInfo();
+    }
+  }
   if (path === 'feeds') {
     renderFeeds(value);
   }
