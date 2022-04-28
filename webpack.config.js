@@ -1,9 +1,11 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path, { dirname } from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { fileURLToPath } from 'url';
 
-const isProduction = process.env.NODE_ENV === 'production';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-const config = {
+export default {
   entry: ['babel-polyfill', './main/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -12,12 +14,7 @@ const config = {
     open: true,
     host: 'localhost',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-      minify: true,
-    }),
-  ],
+  mode: process.env.NODE_ENV || 'development',
   module: {
     rules: [
       {
@@ -37,13 +34,10 @@ const config = {
       },
     ],
   },
-};
-
-module.exports = () => {
-  if (isProduction) {
-    config.mode = 'production';
-  } else {
-    config.mode = 'development';
-  }
-  return config;
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      minify: true,
+    }),
+  ],
 };
