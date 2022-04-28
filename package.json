@@ -1,6 +1,5 @@
 {
   "name": "@hexlet/code",
-  "type": "module",
   "version": "1.0.0",
   "description": "RSS aggregator",
   "main": "main/init.js",
