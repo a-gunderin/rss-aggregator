@@ -37,7 +37,7 @@ export default async () => {
           return false;
         }
         state.isInFeed = false;
-        const proxyUrl = `https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${inputData}`;
+        const proxyUrl = `https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(inputData)}`;
         state.rssIsLoading = true;
         axios.get(proxyUrl)
           .then((response) => {
