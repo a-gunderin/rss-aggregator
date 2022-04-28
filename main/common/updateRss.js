@@ -10,7 +10,7 @@ export default (model) => {
   const timer = () => {
     setTimeout(() => {
       const promises = state.feedUrls.map((feed) => {
-        const proxyUrl = `https://allorigins.hexlet.app/get?disableCache=true&url=${feed}`;
+        const proxyUrl = `https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(feed)}`;
         return axios
           .get(proxyUrl)
           .then((response) => {
