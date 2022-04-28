@@ -1,15 +1,7 @@
-import path, { dirname } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 export default {
   entry: ['babel-polyfill', './main/index.js'],
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-  },
   devServer: {
     open: true,
     host: 'localhost',
