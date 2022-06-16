@@ -5,7 +5,7 @@ import renderFeeds from './renderFeeds.js';
 import renderPosts from './renderPosts.js';
 import renderModalInfo from './renderModalInfo.js';
 import markViewedArticles from './markViewedArticles.js';
-import { blockForm, unblockForm } from './formBlockers.js';
+import { disableForm, enableForm } from './formBlockers.js';
 
 export default (model, path, value, i18nextInstance) => {
   if (path === 'isValidUrl') {
@@ -64,10 +64,10 @@ export default (model, path, value, i18nextInstance) => {
   }
   if (path === 'rssIsLoading') {
     if (value === true) {
-      blockForm();
+      disableForm();
     }
     if (value === false) {
-      unblockForm();
+      enableForm();
     }
   }
 };
